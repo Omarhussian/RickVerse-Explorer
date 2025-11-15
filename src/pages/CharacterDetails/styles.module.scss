@@ -1,0 +1,82 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+.grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.media {
+  background: $card-bg;
+  border-radius: $radius;
+  border: 2px solid $portal-blue;
+  overflow: hidden;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.info {
+  background: $card-bg;
+  border-radius: $radius;
+  border: 2px solid $portal-blue;
+  padding: 16px;
+}
+
+.meta {
+  color: $text-muted;
+  margin-bottom: 12px;
+}
+
+.meta [data-status='alive'] { color: $rick-green; }
+.meta [data-status='dead'] { color: $danger; }
+.meta [data-status='unknown'] { color: $portal-blue; }
+
+.rows {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.label {
+  color: $text-muted;
+  display: block;
+  font-size: 0.85rem;
+}
+
+.value {
+  color: $text-light;
+}
+
+.episodes {
+  margin-top: 16px;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.listItem {
+  background: rgba(0,0,0,0.2);
+  border-radius: $radius;
+  border: 1px solid $portal-blue;
+  padding: 8px 10px;
+}
+
+@include tablet {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .list {
+    grid-template-columns: 1fr;
+  }
+}
+
+

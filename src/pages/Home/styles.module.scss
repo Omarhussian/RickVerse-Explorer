@@ -1,0 +1,52 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.title {
+  font-size: 1.4rem;
+  color: $rick-green;
+  margin-bottom: 1rem;
+}
+
+.home {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 12px;
+  align-items: end;
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.meta {
+  color: $text-muted;
+}
+
+.bottomPager {
+  margin: 12px 0 4px;
+  display: flex;
+  justify-content: center;
+}
+
+@include tablet {
+  .controls {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+}
+
+

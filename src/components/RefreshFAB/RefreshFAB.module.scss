@@ -1,0 +1,86 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+.fab {
+  position: fixed;
+  left: 16px;
+  bottom: 24px;
+  z-index: 1000;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid $portal-blue;
+  background: linear-gradient(135deg, rgba(151,206,76,0.15), rgba(0,181,204,0.15));
+  color: $text-light;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform $transition, box-shadow $transition, border-color $transition, background $transition;
+  backdrop-filter: blur(4px);
+}
+
+.fab:hover {
+  transform: translateY(-2px) scale(1.03);
+  border-color: $rick-green;
+  box-shadow: $glow-green;
+  background: linear-gradient(135deg, rgba(151,206,76,0.25), rgba(0,181,204,0.25));
+}
+
+.fab:focus-visible {
+  outline: none;
+  border-color: $rick-green;
+  box-shadow: 0 0 0 3px rgba(151,206,76,0.35);
+}
+
+.icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+@include mobile {
+  .fab {
+    left: 12px;
+    bottom: 16px;
+    width: 52px;
+    height: 52px;
+  }
+}
+
+.panel {
+  position: fixed;
+  left: 84px;
+  bottom: 24px;
+  z-index: 999;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 8px;
+  background: $card-bg;
+  border: 2px solid $portal-blue;
+  border-radius: $radius;
+  padding: 8px;
+  align-items: center;
+}
+
+.time {
+  color: $rick-green;
+  font-weight: 600;
+  min-width: 44px;
+  text-align: center;
+}
+
+.btn {
+  padding: 8px 10px;
+  background: transparent;
+  border-radius: $radius;
+  border: 2px solid $portal-blue;
+  color: $text-light;
+  cursor: pointer;
+  transition: $transition;
+}
+
+.btn:hover {
+  border-color: $rick-green;
+  box-shadow: $glow-green;
+}
+
+

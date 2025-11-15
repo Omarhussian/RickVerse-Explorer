@@ -1,0 +1,44 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+.form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label {
+  color: $rick-green;
+  font-size: 0.9rem;
+}
+
+input,
+select {
+  padding: 10px 12px;
+  background: $card-bg;
+  border-radius: $radius;
+  border: 2px solid $portal-blue;
+  color: $text-light;
+  outline: none;
+  transition: $transition;
+}
+
+select:hover,
+input:focus {
+  border-color: $rick-green;
+  box-shadow: $glow-green;
+}
+
+@include mobile {
+  .form {
+    grid-template-columns: 1fr;
+  }
+}
+
+

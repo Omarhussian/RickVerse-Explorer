@@ -1,0 +1,45 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  margin: 16px 0;
+}
+
+.nav,
+.page,
+.pageActive {
+  padding: 8px 12px;
+  border-radius: $radius;
+  border: 2px solid $portal-blue;
+  background: transparent;
+  color: $text-light;
+  cursor: pointer;
+  transition: $transition;
+}
+
+.page:hover,
+.nav:hover {
+  border-color: $rick-green;
+  box-shadow: $glow-green;
+}
+
+.pageActive {
+  border-color: $rick-green;
+  color: $rick-green;
+  box-shadow: $glow-green;
+}
+
+.nav:disabled {
+  opacity: .5;
+  cursor: default;
+}
+
+.ellipsis {
+  color: $text-muted;
+  padding: 0 4px;
+}
+
+
