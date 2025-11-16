@@ -1,73 +1,81 @@
-# React + TypeScript + Vite
+# RickVerse Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small single-page application that lets users explore characters from The Rick and Morty API. This project was completed as an interview exercise and focuses on clarity, responsiveness, and solid engineering practices.
 
-Currently, two official plugins are available:
+## Features
+- Paginated character list with image, name, status, species, and origin.
+- Search by name with a debounced input.
+- Filter by status (Alive, Dead, Unknown) and species.
+- Sort by name (A→Z or Z→A).
+- Character details page showing core info and the first five episode names.
+- Auto-refresh via a floating button that expands to Pause/Resume or trigger a manual Refresh.
+- Light and Dark themes with persistence.
+- Accessible labels, roles, and keyboard focus states.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+API Endpoints
+- Base: `https://rickandmortyapi.com/api`
+- Characters: `GET /character?page=1&name=rick&status=alive`
+- Episodes: `GET /episode/:id`
+- Locations: `GET /location/:id`
 
-## React Compiler
+## Getting Started
+Requirements
+- Node 20+ is recommended.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Install and run
+```
+npm install
+npm run dev
+```
+Open the printed local URL in your browser.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Build and preview
+```
+npm run build
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Scripts
+- `dev` – start the Vite dev server
+- `build` – type-check and build for production
+- `preview` – preview the production build
+- `lint` – run ESLint
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Tech Stack
+- React + TypeScript + Vite
+- React Router
+- Axios for HTTP requests
+- SCSS Modules for component styling
+- CSS variables for theming
+- react-icons for small, inline icons
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project Structure
 ```
+src/
+  api/                 // axios client + endpoints
+  components/          // reusable UI components (cards, inputs, pagination, toggle, etc.)
+  hooks/               // useCharacters, useDebounce, useTimer
+  pages/               // Home and CharacterDetails
+  routes/              // AppRouter with lazy routes
+  styles/              // global variables, mixins, and theme setup
+  types/               // API types
+  utils/               // small helpers
+```
+
+## Architecture Notes
+- `useCharacters` manages fetching, pagination, sorting, and errors. It exposes `page`, `setPage`, `totalPages`, and a `refetch` that guarantees a new request even when filters are unchanged.
+- `useDebounce` smooths search requests.
+- `useTimer` powers the refresh controls and countdown.
+- Routing is lazy to keep the initial bundle small.
+
+## Theming
+- Dark is the default. A light theme is provided by toggling `data-theme="light"` on `<html>`.
+- Component styles use CSS variables so the theme switch applies consistently.
+
+## Accessibility
+- Form fields are labeled, interactive elements are keyboard accessible, and feedback uses semantic elements and ARIA where appropriate.
+
+## Future Work
+- Recently viewed characters on the Home page (persist last five).
+- Skeleton placeholders for list and details.
+- Error boundary for improved routing fallback.
