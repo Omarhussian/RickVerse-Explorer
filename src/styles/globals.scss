@@ -1,6 +1,30 @@
 @use "./variables" as *;
 @use "./mixins" as *;
 
+:root {
+  --bg: #{$bg};
+  --card-bg: #{$card-bg};
+  --primary: #{$rick-green};
+  --accent: #{$portal-blue};
+  --text: #{$text-light};
+  --muted: #{$text-muted};
+  --danger: #{$danger};
+  --glow-green: 0 0 12px rgba(151, 206, 76, 0.6);
+  --glow-blue: 0 0 12px rgba(0, 181, 204, 0.6);
+}
+
+[data-theme="light"] {
+  --bg: #f5f7fa;
+  --card-bg: #ffffff;
+  --primary: #2e7d32;
+  --accent: #007d8f;
+  --text: #0d0f10;
+  --muted: #475569;
+  --danger: #d32f2f;
+  --glow-green: 0 0 12px rgba(46, 125, 50, 0.45);
+  --glow-blue: 0 0 12px rgba(0, 125, 143, 0.45);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,8 +32,8 @@
 }
 
 html, body {
-  background: $bg;
-  color: white;
+  background: var(--bg);
+  color: var(--text);
   font-family: "Inter", sans-serif;
   min-height: 100vh;
 }
@@ -31,7 +55,7 @@ a {
 
 .section-title {
   font-size: 1.4rem;
-  color: $rick-green;
+  color: var(--primary);
   margin-bottom: 1rem;
   
 }

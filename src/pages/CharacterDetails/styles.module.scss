@@ -8,9 +8,9 @@
 }
 
 .media {
-  background: $card-bg;
+  background: var(--card-bg);
   border-radius: $radius;
-  border: 2px solid $portal-blue;
+  border: 2px solid var(--accent);
   overflow: hidden;
 }
 
@@ -21,20 +21,20 @@
 }
 
 .info {
-  background: $card-bg;
+  background: var(--card-bg);
   border-radius: $radius;
-  border: 2px solid $portal-blue;
+  border: 2px solid var(--accent);
   padding: 16px;
 }
 
 .meta {
-  color: $text-muted;
+  color: var(--muted);
   margin-bottom: 12px;
 }
 
-.meta [data-status='alive'] { color: $rick-green; }
-.meta [data-status='dead'] { color: $danger; }
-.meta [data-status='unknown'] { color: $portal-blue; }
+.meta [data-status='alive'] { color: var(--primary); }
+.meta [data-status='dead'] { color: var(--danger); }
+.meta [data-status='unknown'] { color: var(--accent); }
 
 .rows {
   display: grid;
@@ -43,13 +43,13 @@
 }
 
 .label {
-  color: $text-muted;
+  color: var(--muted);
   display: block;
   font-size: 0.85rem;
 }
 
 .value {
-  color: $text-light;
+  color: var(--text);
 }
 
 .episodes {
@@ -61,13 +61,16 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
   margin-top: 8px;
+  list-style: none;
+  padding-left: 0;
 }
 
 .listItem {
   background: rgba(0,0,0,0.2);
   border-radius: $radius;
-  border: 1px solid $portal-blue;
+  border: 1px solid var(--accent);
   padding: 8px 10px;
+  text-decoration: none;
 }
 
 @include tablet {

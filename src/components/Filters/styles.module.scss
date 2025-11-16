@@ -14,25 +14,25 @@
 }
 
 label {
-  color: $rick-green;
+  color: var(--primary);
   font-size: 0.9rem;
 }
 
 input,
 select {
   padding: 10px 12px;
-  background: $card-bg;
+  background: var(--card-bg);
   border-radius: $radius;
-  border: 2px solid $portal-blue;
-  color: $text-light;
+  border: 2px solid var(--accent);
+  color: var(--text);
   outline: none;
   transition: $transition;
 }
 
 select:hover,
 input:focus {
-  border-color: $rick-green;
-  box-shadow: $glow-green;
+  border-color: var(--primary);
+  box-shadow: var(--glow-green);
 }
 
 @include mobile {

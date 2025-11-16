@@ -8,6 +8,8 @@ import useDebounce from '../../hooks/useDebounce';
 import { useTimer } from '../../hooks/useTimer';
 import { useCharacters } from '../../hooks/useCharacters';
 import styles from './styles.module.scss';
+import Loader from '../../components/Loader/Loader';
+import ThemeToggle from '../../components/ThemeToggle/ThemeToggle';
 
 export default function Home() {
   const [search, setSearch] = useState<string>('');
@@ -52,6 +54,7 @@ export default function Home() {
       <div className={styles.topRow}>
         <h2 className={styles.title}>Character Explorer</h2>
         <span className={styles.meta}>{totalCount ? `Total: ${totalCount}` : ''}</span>
+        <ThemeToggle />
       </div>
 
       <div className={styles.controls}>
@@ -61,9 +64,13 @@ export default function Home() {
 
       {error && <p role="alert">Error: {error}</p>}
 
-      <Suspense fallback={<div>Loading list…</div>}>
-        <CharacterList characters={characters} />
-      </Suspense>
+      {isLoading ? (
+        <div className={styles.center}><Loader /></div>
+      ) : (
+        <Suspense fallback={<div className={styles.center}><Loader /></div>}>
+          <CharacterList characters={characters} />
+        </Suspense>
+      )}
 
       <div className={styles.bottomPager}>
         <Pagination page={page} totalPages={totalPages} onChange={setPage} />

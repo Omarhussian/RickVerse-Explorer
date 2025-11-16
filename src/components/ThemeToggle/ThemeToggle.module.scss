@@ -1,0 +1,30 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.toggle {
+  margin-left: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  background: var(--card-bg);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: $transition;
+}
+
+.btn:hover {
+  border-color: var(--primary);
+  box-shadow: var(--glow-green);
+}
+
+

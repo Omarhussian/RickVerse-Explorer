@@ -26,7 +26,6 @@ export default function CharacterDetails() {
         const eps = await fetchEpisodesByIds(firstIds);
         if (!mounted) return;
         setEpisodes(eps.map((e) => e.name));
-        // persist recently viewed
         try {
           const key = 'recentlyViewed';
           const curr = JSON.parse(localStorage.getItem(key) || '[]') as Character[];
@@ -56,8 +55,8 @@ export default function CharacterDetails() {
           <h2 className="section-title">{character.name}</h2>
           <p className={styles.meta}>
             <span data-status={character.status.toLowerCase()}>{character.status}</span>
-            <span> • {character.species}</span>
-            <span> • {character.gender}</span>
+            <span>  {character.species}</span>
+            <span>  {character.gender}</span>
           </p>
           <div className={styles.rows}>
             <div>

@@ -2,18 +2,18 @@
 @use "../../styles/mixins" as *;
 .card {
   display: block;
-  background: $card-bg;
+  background: var(--card-bg);
   border-radius: $radius;
   overflow: hidden;
-  border: 2px solid $portal-blue;
+  border: 2px solid var(--accent);
   transition: transform $transition, box-shadow $transition, border-color $transition, filter $transition;
   transform: translateZ(0);
 }
 
 .card:hover {
   transform: translateY(-2px);
-  border-color: $rick-green;
-  box-shadow: $glow-green;
+  border-color: var(--primary);
+  box-shadow: var(--glow-green);
   filter: brightness(1.03);
 }
 
@@ -34,22 +34,22 @@
 }
 
 .meta {
-  color: $text-muted;
+  color: var(--muted);
   margin-bottom: 6px;
 }
 
 .status[data-status='alive'] {
-  color: $rick-green;
+  color: var(--primary);
 }
 .status[data-status='dead'] {
-  color: $danger;
+  color: var(--danger);
 }
 .status[data-status='unknown'] {
-  color: $portal-blue;
+  color: var(--accent);
 }
 
 .origin {
-  color: $text-light;
+  color: var(--text);
   font-size: 0.9rem;
 }
 

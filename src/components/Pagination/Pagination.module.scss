@@ -13,23 +13,23 @@
 .pageActive {
   padding: 8px 12px;
   border-radius: $radius;
-  border: 2px solid $portal-blue;
+  border: 2px solid var(--accent);
   background: transparent;
-  color: $text-light;
+  color: var(--text);
   cursor: pointer;
   transition: $transition;
 }
 
 .page:hover,
 .nav:hover {
-  border-color: $rick-green;
-  box-shadow: $glow-green;
+  border-color: var(--primary);
+  box-shadow: var(--glow-green);
 }
 
 .pageActive {
-  border-color: $rick-green;
-  color: $rick-green;
-  box-shadow: $glow-green;
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: var(--glow-green);
 }
 
 .nav:disabled {
@@ -38,7 +38,7 @@
 }
 
 .ellipsis {
-  color: $text-muted;
+  color: var(--muted);
   padding: 0 4px;
 }
 
